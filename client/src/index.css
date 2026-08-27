@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+/* =========================================================
+   PREMIUM LIGHT MODE SYSTEM
+   Complete coverage for cards, dashboards, modals, inputs, text & accents
+   ========================================================= */
+
+.light {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f1f5f9;
+  --border-card: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --accent-gold: #d97706;
+}
+
+.light, .light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Background Overrides */
+.light .bg-slate-950,
+.light .bg-slate-950\/95,
+.light .bg-slate-950\/90,
+.light .bg-slate-950\/85,
+.light .bg-slate-950\/80,
+.light .bg-slate-950\/60,
+.light .bg-slate-950\/50,
+.light .bg-slate-950\/40 {
+  background-color: #f8fafc !important;
+}
+
+.light .bg-slate-900,
+.light .bg-slate-900\/95,
+.light .bg-slate-900\/90,
+.light .bg-slate-900\/85,
+.light .bg-slate-900\/80,
+.light .bg-slate-900\/70,
+.light .bg-slate-900\/60,
+.light .bg-slate-900\/50,
+.light .bg-slate-900\/40 {
+  background-color: #ffffff !important;
+}
+
+.light .bg-slate-800,
+.light .bg-slate-800\/90,
+.light .bg-slate-800\/80,
+.light .bg-slate-800\/70,
+.light .bg-slate-800\/60,
+.light .bg-slate-800\/50,
+.light .bg-slate-800\/40 {
+  background-color: #f1f5f9 !important;
+}
+
+/* Hover Backgrounds */
+.light .hover\:bg-slate-900:hover,
+.light .hover\:bg-slate-800:hover,
+.light .hover\:bg-slate-800\/80:hover,
+.light .hover\:bg-slate-800\/60:hover,
+.light .hover\:bg-slate-700:hover {
+  background-color: #e2e8f0 !important;
+}
+
+/* Border Overrides */
+.light .border-slate-800,
+.light .border-slate-800\/80,
+.light .border-slate-800\/60,
+.light .border-slate-800\/40,
+.light .border-slate-700,
+.light .border-slate-700\/80,
+.light .border-slate-700\/60,
+.light .border-slate-700\/40,
+.light .border-slate-600 {
+  border-color: #e2e8f0 !important;
+}
+
+.light .divide-slate-800\/60 > * + *,
+.light .divide-slate-800 > * + *,
+.light .divide-slate-700 > * + * {
+  border-color: #e2e8f0 !important;
+}
+
+/* Text Color Overrides */
+.light .text-white {
+  color: #0f172a !important;
+}
+
+.light .text-slate-100,
+.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light .text-slate-400 {
+  color: #64748b !important;
+}
+
+.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+.light .hover\:text-white:hover {
+  color: #0f172a !important;
+}
+
+.light .hover\:text-slate-200:hover {
+  color: #1e293b !important;
+}
+
+/* Inputs & Form Controls */
+.light input,
+.light textarea,
+.light select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light input:focus,
+.light textarea:focus,
+.light select:focus {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15) !important;
+}
+
+/* Modal Backdrops & Cards in Light Mode */
+.light .bg-black\/80,
+.light .bg-black\/70,
+.light .bg-black\/60 {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+/* Dropdown & Navigation light mode polish */
+.light .shadow-xl,
+.light .shadow-2xl {
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03) !important;
+}
+
+.light kbd {
+  background-color: #e2e8f0 !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Top Hero section readability */
+.light .hero-section .text-white,
+.hero-section .text-white {
+  color: #ffffff !important;
+}
+
+.light .hero-section .text-slate-100,
+.hero-section .text-slate-100 {
+  color: #f1f5f9 !important;
+}
+
+/* Modal photo header readability in light mode (e.g. Panchavati & Sita Gufa location) */
+.light .place-modal-header .text-white,
+.place-modal-header .text-white,
+.light .place-modal-header h2,
+.place-modal-header h2 {
+  color: #ffffff !important;
+}
+
+.light .place-modal-header .text-white\/90,
+.place-modal-header .text-white\/90,
+.light .place-modal-header span,
+.place-modal-header span {
+  color: #ffffff !important;
+}
+
+.light .place-modal-header .text-amber-400,
+.place-modal-header .text-amber-400 {
+  color: #fbbf24 !important;
+}
+
+/* Destination card photo overlays in light mode */
+.light .card-location-strip,
+.card-location-strip {
+  background-color: rgba(2, 6, 23, 0.85) !important;
+  color: #f8fafc !important;
+  border-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+.light .card-photo-tag,
+.card-photo-tag {
+  background-color: rgba(2, 6, 23, 0.85) !important;
+  color: #fcd34d !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+.light .card-photo-rating,
+.card-photo-rating {
+  background-color: rgba(2, 6, 23, 0.85) !important;
+  color: #ffffff !important;
+  border-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+/* Co-Related Circuits & Nearby in Light Mode */
+.light .bg-blue-950\/20 {
+  background-color: #eff6ff !important;
+}
+
+.light .border-blue-900\/30 {
+  border-color: #bfdbfe !important;
+}
+
+.light .text-blue-200 {
+  color: #1e3a8a !important;
+}
+
+.light .text-blue-300\/80,
+.light .text-blue-300 {
+  color: #2563eb !important;
+}
+
+.light .text-blue-400 {
+  color: #1d4ed8 !important;
+}
+
+.light .bg-blue-500\/10 {
+  background-color: #dbeafe !important;
+}
+
+.light .border-blue-500\/20 {
+  border-color: #93c5fd !important;
+}
+
+.light .hero-stat-box {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(226, 232, 240, 0.8) !important;
+}
+
+/* Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.05);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.35);
+  border-radius: 9999px;
+}
+/* Google Translate Styling Polish */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+.skiptranslate:not(.notranslate) {
+  display: none !important;
+}
+
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
