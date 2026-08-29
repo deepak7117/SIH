@@ -110,14 +110,15 @@ export const sendOtpForUser = async (req, res) => {
 
     await sendSMS(cleanPhone, otp);
 
-    res.status(200).json({
-      success: true,
-      message: `OTP generated and sent to server console & SMS for +91 ${cleanPhone}`,
-      demoOtp: otp,
-    });
+   res.status(200).json({
+  success: true,
+  message: `OTP sent successfully to +91 ${cleanPhone}`,
+  // demoOtp only for local testing – remove when using real SMS
+  ...(process.env.NODE_ENV !== 'production' && { demoOtp: otp }),
+});
   } catch (error) {
     res.status(500).json({ message: error.message || 'Failed to send OTP' });
-  }
+  } 
 };
 
 // @desc    Register a new user & save to MongoDB Atlas after OTP validation

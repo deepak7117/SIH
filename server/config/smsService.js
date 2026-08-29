@@ -1,20 +1,16 @@
 /**
- * SMS Service module.
- * Supports:
- * 1. Live SMS API gateways (e.g., Twilio, Fast2SMS) via environment variables
- * 2. Instant Simulator & console logger for immediate zero-config testing
+ * SMS Service – Fast2SMS (primary) + Twilio (optional) + Console fallback
  */
-
 export const sendSMS = async (phone, otp) => {
-  const message = `Your BhavinShinde Incredible India Tourism verification OTP code is: ${otp}. Valid for 10 minutes.`;
+  const cleanPhone = phone.replace(/[^0-9]/g, '').slice(-10); // last 10 digits
+  const message = `Your BhavinShinde Incredible India Tourism verification OTP is ${otp}. Valid for 10 minutes. Do not share.`;
 
   console.log(`\n========================================`);
-  console.log(`📱 [SMS SERVICE] Sending SMS to: ${phone}`);
-  console.log(`💬 Message: "${message}"`);
-  console.log(`🔑 Verification OTP: >>> [ ${otp} ] <<<`);
+  console.log(`📱 [SMS SERVICE] Target: +91${cleanPhone}`);
+  console.log(`🔑 OTP: ${otp}`);
   console.log(`========================================\n`);
 
-  // Optional: Fast2SMS integration if API key is provided
+  // ---------- Fast2SMS (recommended for India) ----------
   if (process.env.FAST2SMS_API_KEY) {
     try {
       const response = await fetch('https://www.fast2sms.com/dev/bulkV2', {
@@ -26,38 +22,61 @@ export const sendSMS = async (phone, otp) => {
         body: JSON.stringify({
           route: 'otp',
           variables_values: otp,
-          numbers: phone.replace(/[^0-9]/g, ''),
+          numbers: cleanPhone,
         }),
       });
+
       const data = await response.json();
       console.log('Fast2SMS Response:', data);
+
+      if (data.return === true || data.status_code === 200) {
+        return { success: true, provider: 'fast2sms', data };
+      } else {
+        console.error('Fast2SMS failed:', data);
+        // fall through to console / Twilio
+      }
     } catch (error) {
-      console.error('Fast2SMS delivery error:', error.message);
+      console.error('Fast2SMS error:', error.message);
     }
   }
 
-  // Optional: Twilio integration if credentials are provided
-  if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_PHONE_NUMBER) {
+  // ---------- Twilio (optional – good for international) ----------
+  if (
+    process.env.TWILIO_ACCOUNT_SID &&
+    process.env.TWILIO_AUTH_TOKEN &&
+    process.env.TWILIO_PHONE_NUMBER
+  ) {
     try {
-      // Basic Twilio REST API invocation without mandatory heavy external SDK
-      const auth = Buffer.from(`${process.env.TWILIO_ACCOUNT_SID}:${process.env.TWILIO_AUTH_TOKEN}`).toString('base64');
+      const auth = Buffer.from(
+        `${process.env.TWILIO_ACCOUNT_SID}:${process.env.TWILIO_AUTH_TOKEN}`
+      ).toString('base64');
+
       const params = new URLSearchParams();
-      params.append('To', phone.startsWith('+') ? phone : `+91${phone}`);
+      params.append('To', `+91${cleanPhone}`);
       params.append('From', process.env.TWILIO_PHONE_NUMBER);
       params.append('Body', message);
 
-      await fetch(`https://api.twilio.com/2010-04-01/Accounts/${process.env.TWILIO_ACCOUNT_SID}/Messages.json`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Basic ${auth}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: params.toString(),
-      });
+      const res = await fetch(
+        `https://api.twilio.com/2010-04-01/Accounts/${process.env.TWILIO_ACCOUNT_SID}/Messages.json`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Basic ${auth}`,
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: params.toString(),
+        }
+      );
+
+      const data = await res.json();
+      console.log('Twilio Response:', data);
+      return { success: true, provider: 'twilio', data };
     } catch (err) {
-      console.error('Twilio SMS delivery error:', err.message);
+      console.error('Twilio error:', err.message);
     }
   }
 
-  return { success: true, otp };
+  // Fallback – only console (current behaviour)
+  console.log('⚠️ No SMS provider configured. OTP is only in the server console.');
+  return { success: true, provider: 'console', otp };
 };
