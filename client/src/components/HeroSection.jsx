@@ -71,7 +71,7 @@ export default function HeroSection({ heroSlides, currentSlide, theme = 'dark' }
       {/* Hero Central Text: "Let Know Our India" */}
       <div className="relative z-30 max-w-5xl mx-auto px-4 text-center space-y-4 my-auto">
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-          Let Know <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">Our India</span>
+          Let's Know <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">Our India</span>
         </h1>
 
         <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-100 font-medium leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
