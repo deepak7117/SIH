@@ -137,7 +137,7 @@ export default function Navbar({
               <span className={`text-xl font-black tracking-tight flex items-center gap-1 ${
                 theme === 'light' ? 'text-slate-900' : 'text-white'
               }`}>
-                Team<span className="text-amber-500">Pheonix</span>
+                Digital<span className="text-amber-500">Memory Lane</span>
               </span>
               <p className={`text-[10px] tracking-widest uppercase font-medium ${
                 theme === 'light' ? 'text-slate-500' : 'text-slate-400'
