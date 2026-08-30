@@ -221,13 +221,17 @@ export default function UserDashboard({
       summary: 'Scan monument QR boards placed at entrance gates of Nashik heritage places to get instant audio guide, AR view & earn tourist reward points.'
     },
     {
-      title: 'Kumbh Mela & Godavari Ghat Walking Route',
-      summary: 'Recommended morning walking route starting from Ramkund towards Kapaleshwar & Sita Gufa with optimal photo spots.'
+      title: 'Scanning Images & QR Codes on Location',
+      summary: "When visiting a monument, tap the Camera / Scan icon on the top navigation bar of the app.Point your camera at a monument, artifact, or official site plaque to instantly auto-detect the heritage site and pull up its full historical details.Scan the official Sanskriti Smriti QR Code posted at the monument's entrance to jump directly to its dedicated page, audio guides, and community stories."
     },
     {
-      title: 'Trekking Brahmagiri & Anjaneri Safety Guide',
-      summary: 'Essential monsoon safety checklist, recommended shoes, emergency helpline numbers, and sunrise timing.'
-    }
+      title: 'Accessing History & Traditions',
+      summary: 'Click on any place card (e.g., Jaipur or Kochi) or scan its QR code to open its main detail page.Select the Sites & History tab to read about the origin, historical timelines, and architecture of the location.Switch to the Niche Traditions tab to explore regional art forms, local crafts, and living cultural practices.'
+    },
+    {
+      title: 'Submitting a Review & Story',
+      summary: 'Open the specific place page you visited and click the Add Tradition Memory button.Select your star rating (1–5), pick your visit date, write your experience, and attach your photos.Click Submit—your review will show as Pending in your profile and go live publicly once approved by an admin.'
+    },
   ];
 
   // Filter places for search bar
