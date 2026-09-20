@@ -40,7 +40,7 @@ export default function Footer({ onHostDashboardClick }) {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-amber-400" />
-                <span>support@phoenix.org</span>
+                <span>support@digitalmemory.in</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-amber-400" />
