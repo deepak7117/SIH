@@ -1,0 +1,49 @@
+name: sih_heritage_app
+description: "Smart India Hackathon Heritage & Tourism Flutter Application with Google Maps, Google Auth, Firestore, and JWT Security."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Google Authentication & Firebase
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  google_sign_in: ^6.2.1
+  cloud_firestore: ^5.4.4
+
+  # Google Maps & Geolocation
+  google_maps_flutter: ^2.10.0
+  geolocator: ^13.0.1
+
+  # Security & Networking (JWT)
+  flutter_secure_storage: ^9.2.2
+  http: ^1.2.2
+
+  # State Management
+  provider: ^6.1.2
+
+  # Multimedia & Audio Tour Guide
+  audioplayers: ^6.1.0
+
+  # Camera & QR Scanner
+  mobile_scanner: ^6.0.0
+
+  # UI Utilities
+  cached_network_image: ^3.4.1
+  intl: ^0.19.0
+  url_launcher: ^6.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
